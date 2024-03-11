@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="2018 0405 create the repository" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="前端， 优化， 分享" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="PeakJ Space" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://peakJ.github.io/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?" + "b662e09de1b3608f73d62bb96f213a99";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+<script src="//code.bdstatic.com/npm/leancloud-storage@3.1.1/dist/av-min.js"></script>
+<script id="leancloud">
+  AV.init({
+    appId: "vJcJkKHJ864RV1KoRQQXaUjP-gzGzoHsz",
+    appKey: "SagHLnqakLPCqrNgt9DBy1jJ"
+  });
+</script>
+
+
+<script>
+  window.config = {"leancloud":{"app_id":"vJcJkKHJ864RV1KoRQQXaUjP-gzGzoHsz","app_key":"SagHLnqakLPCqrNgt9DBy1jJ","server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>PeakJ Space</title>
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">PeakJ Space</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">PeakJ Space</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+  
+  
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2022/03/14/vscode-settings-json/">vscode-settings.json</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2022-03-14
+      </span>
+      
+      
+      
+      <span class="post-visits" data-url="/2022/03/14/vscode-settings-json/" data-title="vscode-settings.json">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;editor.accessibilitySupport&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.bracketPairColorization.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.codeActionsOnSave&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;source.fixAll&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.cursorSmoothCaretAnimation&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Cartograph CF Italic, Cartograph CF&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">14</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.guides.bracketPairs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;active&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.inlineSuggest.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;emmet.showSuggestionsAsSnippets&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;emmet.triggerExpansionOnTab&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;extensions.autoUpdate&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.simpleDialog.enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;github.copilot.enable&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;*&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;markdown&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;plaintext&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;yaml&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.cursorBlinking&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.cursorStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;line&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.env.osx&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;FIG_NEW_SESSION&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Cartograph CF,MesloLGS NF, Menlo, Monaco, &#x27;Courier New&#x27;, monospace&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window.dialogStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;custom&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window.zoomLevel&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.colorTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Vue Theme&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.editor.wrapTabs&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.editorAssociations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;*.md&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vscode.markdown.preview.editor&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.fontAliasing&quot;</span><span class="punctuation">:</span> <span class="string">&quot;antialiased&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.iconTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;material-icon-theme&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.list.smoothScrolling&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.productIconTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;fluent-icons&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/10/21/HTML5-video-%E4%B9%8B%E7%BC%93%E5%86%B2%E6%9D%A1/">HTML5 video 之缓冲条</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-10-21
+      </span>
+      
+      
+      
+      <span class="post-visits" data-url="/2019/10/21/HTML5-video-%E4%B9%8B%E7%BC%93%E5%86%B2%E6%9D%A1/" data-title="HTML5 video 之缓冲条">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>html5的 <code>&lt;video&gt;</code> 标签现在可以完美支持web端的视频播放场景,最近在用<code>&lt;video&gt;</code>自定义播放器，在绘制进度条的时候，需要标记出视频缓冲段，因此了解了一下媒体元素（video、audio）HTMLMediaElement的一些属性，其中buffered属性跟缓存相关。</p>
+    <div class="read-more">
+      <a href="/2019/10/21/HTML5-video-%E4%B9%8B%E7%BC%93%E5%86%B2%E6%9D%A1/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/10/15/%E6%88%91%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/">我的自定义页面</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-10-15
+      </span>
+      
+      
+      
+      <span class="post-visits" data-url="/2019/10/15/%E6%88%91%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" data-title="我的自定义页面">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <blockquote>
+<p>本文为自定义页面的入口，每条索引对应一个自定义的html页面</p>
+</blockquote>
+<p>** 持续更新 **</p>
+    <div class="read-more">
+      <a href="/2019/10/15/%E6%88%91%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/10/12/simple-eventManage-system/">simple eventManage system</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-10-12
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
+        
+      </span>
+      
+      
+      <span class="post-visits" data-url="/2019/10/12/simple-eventManage-system/" data-title="simple eventManage system">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h3 id="一个精简的事件系统"><a href="#一个精简的事件系统" class="headerlink" title="一个精简的事件系统"></a>一个精简的事件系统</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> eventManage = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> event = &#123;&#125;</span><br><span class="line">  <span class="comment">// 触发事件</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">dispatchEvent</span>(<span class="params">type, infoData</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="property">handlers</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(event.<span class="property">handlers</span>, type)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; event.<span class="property">handlers</span>[type].<span class="property">length</span>; i++) &#123;</span><br><span class="line">          event.<span class="property">handlers</span>[type][i](infoData)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加监听</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">addEventListener</span>(<span class="params">type, callBack</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!event.<span class="property">handlers</span>) &#123;</span><br><span class="line">      <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(event, <span class="string">&#x27;handlers&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">value</span>: &#123;&#125;,</span><br><span class="line">        <span class="attr">enumerable</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">configurable</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">writable</span>: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!event.<span class="property">handlers</span>[type]) &#123;</span><br><span class="line">      event.<span class="property">handlers</span>[type] = []</span><br><span class="line">    &#125;</span><br><span class="line">    event.<span class="property">handlers</span>[type].<span class="title function_">push</span>(callBack)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//移除监听</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">removeEventListener</span>(<span class="params">type</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="property">handlers</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(event.<span class="property">handlers</span>, type)) &#123;</span><br><span class="line">        event.<span class="property">handlers</span>[type] = []</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    event,</span><br><span class="line">    eventType,</span><br><span class="line">    dispatchEvent,</span><br><span class="line">    addEventListener,</span><br><span class="line">    removeEventListener</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; eventManage &#125;</span><br></pre></td></tr></table></figure>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/08/02/git-rebase%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">git rebase使用场景🤣</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-08-02
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
+        
+      </span>
+      
+      
+      <span class="post-visits" data-url="/2019/08/02/git-rebase%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" data-title="git rebase使用场景🤣">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>git rebase 俗称变基，作用是<strong>将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样</strong>。这样操作后，提交历史会变得简洁，可读性更高，因为提交记录改变了时间线，把某个完整功能的提交记录整合在了一起，使得这期间其他人的提交记录不会穿插到其中，干净舒爽！🚾👯‍♂️</p>
+    <div class="read-more">
+      <a href="/2019/08/02/git-rebase%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/07/30/%E7%A4%BE%E4%BF%9D%E9%82%A3%E4%BA%9B%E4%BA%8B/">社保那些事</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-07-30
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E9%9D%9E%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">非技术文章</a>
+        
+      </span>
+      
+      
+      <span class="post-visits" data-url="/2019/07/30/%E7%A4%BE%E4%BF%9D%E9%82%A3%E4%BA%9B%E4%BA%8B/" data-title="社保那些事">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/9ziEXWIcWOy7Q0JG4GnfMw">原文：保哥和八姐</a></p>
+<p><img src="https://s2.ax1x.com/2019/07/30/eJHI81.png" alt="图片来源：pexels"></p>
+<p>最近，我的一个表弟裸辞了。他跟我说，不着急马上投入下一份工作，要先给自己放个假，好好出去玩一下再说。</p>
+<p>好吧，现在的年轻人，都挺头铁的。</p>
+<p>出于对他的关怀，我随口问了一句，社保什么的，你打算自己交吗？他竟然抛出了一张“黑人问号脸”，向我表示，从来没care过这个事情，不工作就不交呗，有什么问题吗？</p>
+<p>我：……</p>
+<h2 id="原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。"><a href="#原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。" class="headerlink" title="原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。"></a>原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。<br>
+    <div class="read-more">
+      <a href="/2019/07/30/%E7%A4%BE%E4%BF%9D%E9%82%A3%E4%BA%9B%E4%BA%8B/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/07/30/clipboard-js-%E9%A6%96%E6%AC%A1%E5%A4%8D%E5%88%B6%E9%9C%80%E8%A6%81%E7%82%B9%E5%87%BB%E4%B8%A4%E6%AC%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">clipboard.js 首次复制需要点击两次问题的解决方案</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-07-30
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
+        
+      </span>
+      
+      
+      <span class="post-visits" data-url="/2019/07/30/clipboard-js-%E9%A6%96%E6%AC%A1%E5%A4%8D%E5%88%B6%E9%9C%80%E8%A6%81%E7%82%B9%E5%87%BB%E4%B8%A4%E6%AC%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" data-title="clipboard.js 首次复制需要点击两次问题的解决方案">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <blockquote>
+<p>web项目中有对渲染后的列表进行复制文字的操作，采用了clipboard.js的方案，免去了解决兼容性的烦恼，但是实际效果不符合预期，第一次点击复制无效，从第二次之后才可以复制成功</p>
+</blockquote>
+<p>项目使用的Vue技术栈，复制操作使用了动态复制的api</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">ClipboardJS</span>(<span class="string">&#x27;.btn&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">text</span>: <span class="keyword">function</span>(<span class="params">trigger</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> trigger.<span class="title function_">getAttribute</span>(<span class="string">&#x27;aria-label&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>经过试验，是因为API调用放在了ajax的回调函数中，这样第一次创建ClipboardJS构造函数成功时，复制操作已经结束，没有复制到任何文本，由于要复制的目标文本必须要通过网络请求动态获取，可以采取hack方案，借助<code>mouseenter</code>实现，当鼠标移入的时候执行一次，在接下来的点击事件中就可以正常复制。</p>
+<p>额外的处理就是区分事件调用者为鼠标移入事件还是点击事件，鼠标移入事件只简单的创建构造函数，屏蔽额外的业务逻辑，真正的逻辑放在点击事件中处理，<strong>保证<code>mouseenter</code>只执行一次即可</strong></p>
+<p>附基础代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html</span></span><br><span class="line">&lt;button <span class="keyword">class</span>=<span class="string">&quot;btn&quot;</span> @mouseenter=<span class="string">&quot;copy&quot;</span> @click=<span class="string">&quot;copy&quot;</span>&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// script</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">copy</span>(<span class="params"></span>) &#123;</span><br><span class="line">    $.<span class="title function_">get</span>(url, data).<span class="title function_">then</span>(</span><br><span class="line">        <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (response.<span class="property">code</span> === <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> clipboard = <span class="keyword">new</span> <span class="title class_">ClipboardJS</span>(<span class="string">&quot;.btn&quot;</span>, &#123;</span><br><span class="line">                    <span class="attr">text</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> response.<span class="property">text</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">                clipboard.<span class="title function_">on</span>(<span class="string">&quot;success&quot;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">                    clipboard.<span class="title function_">destroy</span>();</span><br><span class="line">                &#125;);</span><br><span class="line">                clipboard.<span class="title function_">on</span>(<span class="string">&quot;error&quot;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">                    e.<span class="title function_">clearSelection</span>();</span><br><span class="line">                    clipboard.<span class="title function_">destroy</span>();</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/04/23/MVVM%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">MVVM双向数据绑定的个人理解</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-04-23
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
+        
+      </span>
+      
+      
+      <span class="post-visits" data-url="/2019/04/23/MVVM%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" data-title="MVVM双向数据绑定的个人理解">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="AngularJS-的脏检查机制"><a href="#AngularJS-的脏检查机制" class="headerlink" title="AngularJS 的脏检查机制"></a>AngularJS 的脏检查机制</h2><p>AngularJS的双向数据绑定采用的<strong>脏检查</strong>机制，所谓“脏检查”，就是检测到数据与之前不一致，有变化，这时候就认为数据是“脏”的，然后把不一致的数据变更为较新的值，直到没有新的数据变动。</p>
+<p>通常<strong>UI事件、ajax请求后的数据处理</strong> 或者 <strong>timeout 延迟事件</strong>会触发这个脏检查这个过程的实现，主要是靠 <code>$watch</code> 和<code>$digest</code> 两个重要的函数。</p>
+    <div class="read-more">
+      <a href="/2019/04/23/MVVM%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/">http headers之我见</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-04-20
+      </span>
+      
+      
+      
+      <span class="post-visits" data-url="/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/" data-title="http headers之我见">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p>最近看了一些关于HTTP headers的知识，平时与服务端联调接口，查看headers必不可少。</p>
+<blockquote>
+<p>headers（请求头）允许客户端和服务器通过 <strong>request</strong>和 <strong>response</strong>传递附加信息。一个请求头由名称（不区分大小写）后跟一个冒号“：”，冒号后跟具体的值（不带换行符）组成。该值前面的引导空白会被忽略。</p>
+</blockquote>
+    <div class="read-more">
+      <a href="/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2019/04/15/beacon-api/">h5 数据上报之SendBeacon</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-04-15
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
+        
+      </span>
+      
+      
+      <span class="post-visits" data-url="/2019/04/15/beacon-api/" data-title="h5 数据上报之SendBeacon">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>公司为了精准的了解自己产品的用户使用情况，通常会对用户数据进行统计分析，获取pv、uv、页面留存率、访问设备等信息。与之相关的就是客户端的数据采集，然后上报的服务端。为了保证数据的准确性，就需要保证数据上报不会有差错。</p>
+<h3 id="常见方案及缺陷"><a href="#常见方案及缺陷" class="headerlink" title="常见方案及缺陷"></a>常见方案及缺陷</h3><p>数据发回服务器的常见做法是，将收集好的用户数据，放在unload事件里面，用 AJAX 请求发回服务器。但是这种方法有个弊端，因为AJAX通常应用的场景是异步发送请求，<strong>在 unload 事件中，使用 XHR 异步发送数据。这种做法有可能导致服务端未收到数据，浏览器就已经断开连接</strong>，数据就会丢失。虽然AJAX支持同步请求，但这种做法会阻塞页面的跳转，影响用户体验。</p>
+    <div class="read-more">
+      <a href="/2019/04/15/beacon-api/" class="read-more-link">阅读更多</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+    
+  <nav class="pagination">  
+      
+      
+      <a class="next" href="/page/2/">  
+        <span class="next-text">下一页</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  
+</section>
+        </div>
+          
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jfup3336@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/PeakJ" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">PeakJ</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/spider/spider_background.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ktsmhtweja");
+</script>
+</body>
+
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="localStorage读取性能[转]" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="前端， 优化， 分享" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="PeakJ Space" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://peakJ.github.io/2017/11/16/localStorage读取性能-转/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?" + "b662e09de1b3608f73d62bb96f213a99";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+<script src="//code.bdstatic.com/npm/leancloud-storage@3.1.1/dist/av-min.js"></script>
+<script id="leancloud">
+  AV.init({
+    appId: "vJcJkKHJ864RV1KoRQQXaUjP-gzGzoHsz",
+    appKey: "SagHLnqakLPCqrNgt9DBy1jJ"
+  });
+</script>
+
+
+<script>
+  window.config = {"leancloud":{"app_id":"vJcJkKHJ864RV1KoRQQXaUjP-gzGzoHsz","app_key":"SagHLnqakLPCqrNgt9DBy1jJ","server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>localStorage读取性能[转] - PeakJ Space</title>
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">PeakJ Space</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">PeakJ Space</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      localStorage读取性能[转]
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-11-16
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E4%BC%98%E5%8C%96/">优化</a>
+        
+      </span>
+      
+      
+      <span class="post-visits" data-url="/2017/11/16/localStorage%E8%AF%BB%E5%8F%96%E6%80%A7%E8%83%BD-%E8%BD%AC/" data-title="localStorage读取性能[转]">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    <p><a target="_blank" rel="noopener" href="https://www.epubit.com/book/detail/7751">原文地址</a></p>
+<p>作者：Nicholas Zakas</p>
+<p>在Web开发人员使用的工具中，Web Storage（<a target="_blank" rel="noopener" href="http://dev.w3.org/html5/webstorage/">http://dev.w3.org/html5/webstorage/</a>）迅速成为了HTML5新增的最受欢迎的功能。具体来说，localStorage提供了快速简单的客户端数据存储功能，可以跨多个会话存储数据，这使得localStorage在世界各地Web开发人员中被广为应用。通过使用简单的键值接口，我们看到很多网站以各种独特而有趣的方式应用localStorage这一技术。</p>
+<p>Disqus（<a target="_blank" rel="noopener" href="http://www.disqus.com/">http://www.disqus.com/</a>），是一个非常流行的反馈管理系统。它使用localStorage来实时保存您正在输入的评论。因此，即使有可怕的意外发生，你也可以重启浏览器，从出现问题之前的地方继续。</p>
+<p>谷歌（<a target="_blank" rel="noopener" href="http://www.google.com/">http://www.google.com/</a>）和Bing（<a target="_blank" rel="noopener" href="http://www.bing.com/">http://www.bing.com/</a>）用localStorage存储JavaScript和CSS，来改善他们的移动网站性能。</p>
+<span id="more"></span>
+<p>在我了解的案例中，Google&#x2F;Bing的这种方式似乎越来越受人们的欢迎。部分原因是由于HTML5 application cache使用困难，部分原因是该技术得到了Steve Souders和其他人的青睐。事实上，随着我越来越多地和人们提及localStorage以及用它来存储UI相关信息是多么的有用，我发现更多人开始尝试这种技术。</p>
+<p>我发现一个令人费解的现象，人们在使用localstorage时有一个内定不成文的假设：从localStorage读取数据开销不大。我曾经从其他开发者那里听到传言说遇到异常的性能问题，所以我设计了一个实验来量化localStorage的性能特点，以确定用它读取数据的实际成本。</p>
+<p>2.1　基准测试</p>
+<p>不久前，我创建并共享了一个简单的基准测试，来测量从localStorage取值和从一个对象属性取值的性能。有人基于这个测试做了改良，并开发了更可靠的版本（<a target="_blank" rel="noopener" href="http://jsperf.com/localstorage-vs-objects/10">http://jsperf.com/localstorage-vs-objects/10</a>）。最终结果是：每个浏览器中，从localStorage读取数据比从对象属性中读取相同数据慢几个数量级。到底有多慢呢？请看图2-1所示（数字越高越好）。<br><img src="https://s2.ax1x.com/2019/06/28/ZKXIHg.png" alt="图2-1基准测试"></p>
+<p>看了这个图后，你可能会感到困惑，因为它似乎没有展示出从localStorage中读取数据的结果。事实上它被展现出来了，你看不到它的原因是这一数字实在太小，在图示比例上甚至不可见。除了Safari 5可以显示实际的localStorage的读取数据结果，所有其他浏览器的巨大差异使得你根本不可能在这张图上看到实际数据。当我调整y轴的值后，你才可以看到不同浏览器中的测量结果。</p>
+<p>通过改变y轴的比例，现在你可以看到从local Storage和从对象属性读取数据的真实对比（见图2-2）。可以看出，结果仍然如此，几乎到了滑稽的程度，这是为什么呢？<br><img src="https://s2.ax1x.com/2019/06/28/ZKjVKK.png" alt="图2-2测试结果"></p>
+<p>2.2　这是怎么回事</p>
+<p>为了保持跨浏览器会话，localStorage的数据被写入磁盘中。这意味着当你从localStorage中读取数据时，你实际上是从硬盘驱动器上读取这些字节。读写硬盘开销高昂，特别是相对于读写内存来说。从本质上讲，这正是我的基准测试所测试的内容，即从缓存（对象属性）读取数据和从磁盘（localStorage）读取数据的速度比较。</p>
+<p>更有趣的是，localStorage按源存储数据，这意味着，在同一时间内，浏览器中的多个标签页可以访问相同的localStorage数据。</p>
+<p>这对于那些需要弄明白如何实现各标签页同步访问localStorage的浏览器开发商来说十分头疼。当需要从localStorage中读取数据时，浏览器首先需要停下来看看是否有其他标签页正在访问同一数据区域。如果是的话，浏览器必须等到之前的访问操作完成，才可以读取该值。</p>
+<p>因此，与从localStorage读取数据相关的延迟是不定的，它在很大程度上取决于在那个时间点上浏览器还在进行的其他操作。</p>
+<p>2.3　优化策略</p>
+<p>既然从localStorage读取数据有一定开销，那么这会怎样影响你如何使用这一技术呢？在下结论之前，我运行了另一个基准测试（<a target="_blank" rel="noopener" href="http://jsperf.com/localstorage-string-size">http://jsperf .com/localstorage-string- size</a>），以确定从localStorage读取不同大小数据的效果。我们保存4种不同大小的字符串（100个字符、500个汉字、1000个字符和2000个字符）到localStorage中，然后把它们读取出来。结果有点令人惊讶，在所有浏览器中，读取数据量的大小不会影响读取速度的快慢。</p>
+<p>我测试了很多次，并恳请我的Twitter粉丝提供更多的信息（<a target="_blank" rel="noopener" href="https://twitter.com/slicknet/status/139475625793699840">https://twitter.com/ slicknet/status/139475625793699840</a>）。可以肯定的是，对于不同的浏览器会有些许差异，但这些差异都不大，并没有实质性的不同。我的结论是：从单一localStorage键值中读取的数据量对速度没有影响。</p>
+<p>我又进行了另一个基准测试（<a target="_blank" rel="noopener" href="http://jsperf.com/localstorage-string-size-retrieval">http://jsperf.com/localstorage-string-size-retrieval</a>）来检验我的新结论，最好尽可能地减少读取数据的次数。和此前的基准测试结果类似，在大多数浏览器中，读取100个字符10次比一次读取10 000字符慢90%左右。</p>
+<p>鉴于此，从localStorage读取数据的最佳策略是使用尽可能少的键值，存储尽可能多的数据。因为读取10个字符和读取2000个字符所需时间大致是相同的，所以你应该尝试把尽可能多的数据保存为一个键值对应的值。每次调用getItem()（或从localStorage读取属性）都会增加时耗，所以一定要确保每次访问读取数据最大化。对于任何一个变量或对象属性，你越快将它读取到内存，后续的所有操作也会越快。</p>
+<p>2.4　跟进</p>
+<p>这篇文章一经发表就引发了大量围绕localStorage性能的讨论。讨论最开始出现在Mozilla 的Chris Heilmann的博客文章中，题为“localStorage没有简单的解决方案”。在文章中，Chris认为localStorage作为一个整体存在性能问题。在很多博文讨论（其中也包括我的）之后，我最终能够联系上Firefox负责实现localStorage的工程师Jonas Sicking。事实上，localStorage所存在的性能问题并不只是比从对象读取数据花费时间长一些那么简单。问题的关键是，localStorage是一个同步API，这本身就使浏览器实现这个API时捉襟见肘。所有的localStorage数据都存储在磁盘文件上。这意味着，为了让您可以用JavaScript访问这些数据，浏览器必须先将该文件读取到内存中。当读取操作发生时性能问题便产生了。当第一次访问localStorage就可能产生性能问题，但在随后的读取操作中浏览器有可能会冻结。在处理少量数据时，这可能不是一个大问题，但如果你已经达到5 MB限制时，就会有明显的影响。Firefox采纳的另一种解决方案，是在加载页面的同时读取localStorage数据。这将确保之后对localStorage的访问最快，并有可预测性。这种方法的缺点是对页面加载时间造成不利影响。到我写这篇文章之时，这一问题仍然没有被解决。有人呼吁用一个全新的API来代替localStorage，其他的人则试图修复现有API的问题。不管发生什么情况，不久的将来仍会有客户端数据存储领域的更多研究。不管发生什么情况，最近一段时间内，我们仍然需要在客户端数据存储方面做更多的研究。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>原文作者: </span>
+    <a href="https://peakJ.github.io">PeakJ</a>
+  </p>
+  <p class="copyright-item">
+    <span>原文链接: </span>
+    <a href="https://peakj.github.io/2017/11/16/localStorage%E8%AF%BB%E5%8F%96%E6%80%A7%E8%83%BD-%E8%BD%AC/">https://peakj.github.io/2017/11/16/localStorage%E8%AF%BB%E5%8F%96%E6%80%A7%E8%83%BD-%E8%BD%AC/</a>
+  </p>
+  <p class="copyright-item">
+    <span>许可协议: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/localStorage/">localStorage</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2017/12/20/%E5%A1%AB%E5%9D%91%E4%B9%8B%E8%B7%AF/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">填坑之路</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2016/04/05/hello-world/">  
+        <span class="next-text nav-default">Hello World</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTY3OS8xODIyNQ==">  
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>  
+      </div>    
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jfup3336@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/PeakJ" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">PeakJ</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+  
+<script type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') {
+      return;
+    }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+  
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/spider/spider_background.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ktsmhtweja");
+</script>
+</body>
+
+</html>

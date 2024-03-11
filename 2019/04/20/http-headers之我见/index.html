@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="http headers之我见" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="前端， 优化， 分享" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="PeakJ Space" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://peakJ.github.io/2019/04/20/http-headers之我见/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?" + "b662e09de1b3608f73d62bb96f213a99";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+<script src="//code.bdstatic.com/npm/leancloud-storage@3.1.1/dist/av-min.js"></script>
+<script id="leancloud">
+  AV.init({
+    appId: "vJcJkKHJ864RV1KoRQQXaUjP-gzGzoHsz",
+    appKey: "SagHLnqakLPCqrNgt9DBy1jJ"
+  });
+</script>
+
+
+<script>
+  window.config = {"leancloud":{"app_id":"vJcJkKHJ864RV1KoRQQXaUjP-gzGzoHsz","app_key":"SagHLnqakLPCqrNgt9DBy1jJ","server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>http headers之我见 - PeakJ Space</title>
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">PeakJ Space</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">PeakJ Space</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      http headers之我见
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2019-04-20
+      </span>
+      
+      
+      
+      <span class="post-visits" data-url="/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/" data-title="http headers之我见">
+        阅读量 0
+      </span>
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#header-%E2%80%93img-src"><span class="toc-number">1.</span> <span class="toc-text">header –img:src</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#header-%E2%80%93-js-src-css-href"><span class="toc-number">2.</span> <span class="toc-text">header – js:src&#x2F; css:href</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#headers%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">headers的相关介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#request%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%AD%97%E6%AE%B5%E4%B8%80%E8%A7%88"><span class="toc-number">3.1.</span> <span class="toc-text">request请求头字段一览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#response%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AD%97%E6%AE%B5%E4%B8%80%E8%A7%88"><span class="toc-number">3.2.</span> <span class="toc-text">response响应头字段一览</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>最近看了一些关于HTTP headers的知识，平时与服务端联调接口，查看headers必不可少。</p>
+<blockquote>
+<p>headers（请求头）允许客户端和服务器通过 <strong>request</strong>和 <strong>response</strong>传递附加信息。一个请求头由名称（不区分大小写）后跟一个冒号“：”，冒号后跟具体的值（不带换行符）组成。该值前面的引导空白会被忽略。</p>
+</blockquote>
+<span id="more"></span>
+<p>每一个AJAX请求，都可以设置header的相关属性，可以说headers是HTTP请求必不可少的部分。HTML中<code>&lt;script src=&quot;http://example.com/test.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.test.com/theme.css&quot; /&gt;</code> 的src和href属性对应的资源文件，也是通过HTTP请求加载的，还有<br><code>&lt;img src=&quot;http://example.jpg&quot;/&gt;</code>图片的请求，也是HTTP的。</p>
+<blockquote>
+<p><strong>既然图片、JS、CSS都是HTTP请求，那么如何在请求这些资源的时候设置headers呢？</strong></p>
+</blockquote>
+<p>如果直接给src 和 href 属性赋值，肯定是没办法设置header的。<br>关于图片的设置，是有办法可行的，但是对于js css 等资源，目前没有什么特别好的方式（当然，日常开发也几乎不会有这样的应用场景）。</p>
+<h3 id="header-–img-src"><a href="#header-–img-src" class="headerlink" title="header –img:src"></a>header –img:src</h3><p>图片设置header</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oReq = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">oReq.<span class="title function_">open</span>(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;https://s2.ax1x.com/2019/07/30/eJHI81.png&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">oReq.<span class="title function_">setRequestHeader</span>(<span class="string">&quot;Your-Header-Here&quot;</span>, <span class="string">&quot;Value&quot;</span>);</span><br><span class="line"><span class="comment">// use multiple setRequestHeader calls to set multiple values</span></span><br><span class="line">oReq.<span class="property">responseType</span> = <span class="string">&quot;arraybuffer&quot;</span>;</span><br><span class="line">oReq.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params">oEvent</span>) &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> arrayBuffer = oReq.<span class="property">response</span>; <span class="comment">// Note: not oReq.responseText</span></span><br><span class="line">  <span class="keyword">if</span> (arrayBuffer) &#123;</span><br><span class="line">    <span class="keyword">var</span> u8 = <span class="keyword">new</span> <span class="title class_">Uint8Array</span>(arrayBuffer);</span><br><span class="line">    <span class="keyword">var</span> b64encoded = <span class="title function_">btoa</span>(<span class="title function_">arrayBufferToString</span>(u8));</span><br><span class="line">    <span class="keyword">var</span> mimetype=<span class="string">&quot;image/png&quot;</span>; <span class="comment">// or whatever your image mime type is</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;testImg&quot;</span>).<span class="property">src</span>=<span class="string">&quot;data:&quot;</span>+mimetype+<span class="string">&quot;;base64,&quot;</span>+b64encoded;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">oReq.<span class="title function_">send</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">arrayBufferToString</span>(<span class="params">buffer</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> bufView = <span class="keyword">new</span> <span class="title class_">Uint16Array</span>(buffer)</span><br><span class="line">  <span class="keyword">var</span> length = bufView.<span class="property">length</span></span><br><span class="line">  <span class="keyword">var</span> result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> addition = <span class="title class_">Math</span>.<span class="title function_">pow</span>(<span class="number">2</span>, <span class="number">16</span>) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i += addition) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i + addition &gt; length) &#123;</span><br><span class="line">      addition = length - i</span><br><span class="line">    &#125;</span><br><span class="line">    result += <span class="title class_">String</span>.<span class="property">fromCharCode</span>.<span class="title function_">apply</span>(<span class="literal">null</span>, bufView.<span class="title function_">subarray</span>(i, i + addition))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考链接：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/23609946/img-src-path-with-header-params-to-pass">Img src path with header params to pass</a></p>
+<h3 id="header-–-js-src-css-href"><a href="#header-–-js-src-css-href" class="headerlink" title="header – js:src&#x2F; css:href"></a>header – js:src&#x2F; css:href</h3><p>页面中的js和css暂时还没有好的方法</p>
+<p>参考链接： <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4866722/is-it-possible-to-set-custom-headers-on-js-script-requests">is it possible to set custom headers on js <code>&lt;script&gt;</code> requests?</a></p>
+<h3 id="headers的相关介绍"><a href="#headers的相关介绍" class="headerlink" title="headers的相关介绍"></a>headers的相关介绍</h3><p>附上headers的相关说明：</p>
+<p>HTTP 头字段根据实际用途被分为以下 4 种类型：</p>
+<ul>
+<li>通用头字段(英语：General Header Fields)</li>
+<li>请求头字段(英语：Request Header Fields)</li>
+<li>响应头字段(英语：Response Header Fields)</li>
+<li>实体头字段(英语：Entity Header Fields)</li>
+</ul>
+<h4 id="request请求头字段一览"><a href="#request请求头字段一览" class="headerlink" title="request请求头字段一览"></a>request请求头字段一览</h4><table>
+<thead>
+<tr>
+<th>协议头字段名</th>
+<th>说明</th>
+<th>示例</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accept</td>
+<td>能够接受的回应内容类型（Content-Types）。参见<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86" title="内容协商">内容协商</a>。</td>
+<td><code>Accept: text/plain</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>能够接受的字符集</td>
+<td><code>Accept-Charset: utf-8</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>能够接受的编码方式列表。参考<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E5%8E%8B%E7%BC%A9" title="HTTP压缩">HTTP压缩</a>。</td>
+<td><code>Accept-Encoding: gzip, deflate</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>能够接受的回应内容的自然语言列表。参考 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86" title="内容协商">内容协商</a> 。</td>
+<td><code>Accept-Language: en-US</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Accept-Datetime</td>
+<td>能够接受的按照时间来表示的版本</td>
+<td><code>Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT</code></td>
+<td>临时</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>用于超文本传输协议的认证的认证信息</td>
+<td><code>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E5%BF%AB%E7%85%A7" title="网页快照">Cache-Control</a></td>
+<td>用来指定在这次的请求&#x2F;响应链中的所有缓存机制 都必须 遵守的指令</td>
+<td><code>Cache-Control: no-cache</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>该浏览器想要优先使用的连接类型</td>
+<td><code>Connection: keep-alive``Connection: Upgrade</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>之前由服务器通过 Set- Cookie （下文详述）发送的一个 超文本传输协议Cookie</td>
+<td><code>Cookie: $Version=1; Skin=new;</code></td>
+<td>常设: 标准</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>以 八位字节数组 （8位的字节）表示的请求体的长度</td>
+<td><code>Content-Length: 348</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-MD5</td>
+<td>请求体的内容的二进制 MD5 散列值，以 Base64 编码的结果</td>
+<td><code>Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==</code></td>
+<td>过时的</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>请求体的 多媒体类型 （用于POST和PUT请求中）</td>
+<td><code>Content-Type: application/x-www-form-urlencoded</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>发送该消息的日期和时间(按照 RFC 7231 中定义的”超文本传输协议日期”格式来发送)</td>
+<td><code>Date: Tue, 15 Nov 1994 08:12:31 GMT</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Expect</td>
+<td>表明客户端要求服务器做出特定的行为</td>
+<td><code>Expect: 100-continue</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>From</td>
+<td>发起此请求的用户的邮件地址</td>
+<td><code>From: user@example.com</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>服务器的域名(用于虚拟主机 )，以及服务器所监听的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE" title="传输控制协议">传输控制协议</a>端口号。如果所请求的端口是对应的服务的标准端口，则端口号可被省略。 自超文件传输协议版本1.1（HTTP&#x2F;1.1）开始便是必需字段。</td>
+<td><code>Host: en.wikipedia.org:80``Host: en.wikipedia.org</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>If-Match</td>
+<td>仅当客户端提供的实体与服务器上对应的实体相匹配时，才进行对应的操作。主要作用时，用作像 PUT 这样的方法中，仅当从用户上次更新某个资源以来，该资源未被修改的情况下，才更新该资源。</td>
+<td><code>If-Match: &quot;737060cd8c284d8af7ad3082f209582d&quot;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>允许在对应的内容未被修改的情况下返回304未修改（ 304 Not Modified ）</td>
+<td><code>If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>If-None-Match</td>
+<td>允许在对应的内容未被修改的情况下返回304未修改（ 304 Not Modified ），参考 超文本传输协议 的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP_ETag" title="HTTP ETag">实体标记</a></td>
+<td><code>If-None-Match: &quot;737060cd8c284d8af7ad3082f209582d&quot;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>If-Range</td>
+<td>如果该实体未被修改过，则向我发送我所缺少的那一个或多个部分；否则，发送整个新的实体</td>
+<td><code>If-Range: &quot;737060cd8c284d8af7ad3082f209582d&quot;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>If-Unmodified-Since</td>
+<td>仅当该实体自某个特定时间已来未被修改的情况下，才发送回应。</td>
+<td><code>If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Max-Forwards</td>
+<td>限制该消息可被代理及网关转发的次数。</td>
+<td><code>Max-Forwards: 10</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Origin</td>
+<td>发起一个针对 跨来源资源共享 的请求（要求服务器在回应中加入一个‘访问控制-允许来源’（’Access-Control-Allow-Origin’）字段）。</td>
+<td><code>Origin: http://www.example-social-network.com</code></td>
+<td>常设: 标准</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>与具体的实现相关，这些字段可能在请求&#x2F;回应链中的任何时候产生多种效果。</td>
+<td><code>Pragma: no-cache</code></td>
+<td>常设但不常用</td>
+</tr>
+<tr>
+<td>Proxy-Authorization</td>
+<td>用来向代理进行认证的认证信息。</td>
+<td><code>Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Range</td>
+<td>仅请求某个实体的一部分。字节偏移以0开始。参见<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E8%8A%82%E6%9C%8D%E5%8A%A1&action=edit&redlink=1" title="字节服务（页面不存在）">字节服务</a>。</td>
+<td><code>Range: bytes=500-999</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E5%8F%83%E7%85%A7%E4%BD%8D%E5%9D%80" title="HTTP引用地址">Referer</a> [<em><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Sic" title="Sic">sic</a></em>]</td>
+<td>表示浏览器所访问的前一个页面，正是那个页面上的某个链接将浏览器带到了当前所请求的这个页面。</td>
+<td><code>Referer: http://en.wikipedia.org/wiki/Main_Page</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>TE</td>
+<td>浏览器预期接受的传输编码方式：可使用回应协议头 Transfer-Encoding 字段中的值；另外还可用”trailers”（与”分块 “传输方式相关）这个值来表明浏览器希望在最后一个尺寸为0的块之后还接收到一些额外的字段。</td>
+<td><code>TE: trailers, [deflate](https://zh.wikipedia.org/wiki/DEFLATE &quot;DEFLATE&quot;)</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>浏览器的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7%E4%BB%A3%E7%90%86" title="用户代理">浏览器身份标识字符串</a></td>
+<td><code>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/21.0</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Upgrade</td>
+<td>要求服务器升级到另一个协议。</td>
+<td><code>Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Via</td>
+<td>向服务器告知，这个请求是由哪些代理发出的。</td>
+<td><code>Via: 1.0 fred, 1.1 example.com (Apache/1.1)</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>一个一般性的警告，告知，在实体内容体中可能存在错误。</td>
+<td><code>Warning: 199 Miscellaneous warning</code></td>
+<td>常设</td>
+</tr>
+</tbody></table>
+<h4 id="response响应头字段一览"><a href="#response响应头字段一览" class="headerlink" title="response响应头字段一览"></a>response响应头字段一览</h4><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>说明</th>
+<th>例子</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Access-Control-Allow-Origin</td>
+<td>指定哪些网站可参与到跨来源资源共享过程中</td>
+<td><code>Access-Control-Allow-Origin: *</code></td>
+<td>临时</td>
+</tr>
+<tr>
+<td>Accept-Patch</td>
+<td>指定服务器支持的文件格式类型。</td>
+<td><code>Accept-Patch: text/example;charset=utf-8</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Accept-Ranges</td>
+<td>这个服务器支持哪些种类的部分内容范围</td>
+<td><code>Accept-Ranges: bytes</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>这个对象在代理缓存中存在的时间，以秒为单位</td>
+<td><code>Age: 12</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Allow</td>
+<td>对于特定资源有效的动作。针对HTTP&#x2F;405这一错误代码而使用</td>
+<td><code>Allow: GET, HEAD</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E5%BF%AB%E7%85%A7" title="网页快照">Cache-Control</a></td>
+<td>向从服务器直到客户端在内的所有缓存机制告知，它们是否可以缓存这个对象。其单位为秒</td>
+<td><code>Cache-Control: max-age=3600</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>针对该连接所预期的选项</td>
+<td><code>Connection: close</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-Disposition</td>
+<td>一个可以让客户端下载文件并建议文件名的头部。文件名需要用双引号包裹。</td>
+<td><code>Content-Disposition: attachment; filename=&quot;fname.ext&quot;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-Encoding</td>
+<td>在数据上使用的编码类型。参考 超文本传输协议压缩 。</td>
+<td><code>Content-Encoding: gzip</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-Language</td>
+<td>内容所使用的语言</td>
+<td><code>Content-Language: da</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>回应消息体的长度，以 字节 （8位为一字节）为单位</td>
+<td><code>Content-Length: 348</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-Location</td>
+<td>所返回的数据的一个候选位置</td>
+<td><code>Content-Location: /index.htm</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-MD5</td>
+<td>回应内容的二进制 MD5 散列，以 Base64 方式编码</td>
+<td><code>Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==</code></td>
+<td>过时的</td>
+</tr>
+<tr>
+<td>Content-Range</td>
+<td>这条部分消息是属于某条完整消息的哪个部分</td>
+<td><code>Content-Range: bytes 21010-47021/47022</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>当前内容的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/MIME" title="MIME">MIME</a>类型</td>
+<td><code>Content-Type: text/html; charset=utf-8</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>此条消息被发送时的日期和时间(按照 RFC 7231 中定义的“超文本传输协议日期”格式来表示)</td>
+<td><code>Date: Tue, 15 Nov 1994 08:12:31 GMT</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP_ETag" title="HTTP ETag">ETag</a></td>
+<td>对于某个资源的某个特定版本的一个标识符，通常是一个 消息散列</td>
+<td><code>ETag: &quot;737060cd8c284d8af7ad3082f209582d&quot;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>指定一个日期&#x2F;时间，超过该时间则认为此回应已经过期</td>
+<td><code>Expires: Thu, 01 Dec 1994 16:00:00 GMT</code></td>
+<td>常设: 标准</td>
+</tr>
+<tr>
+<td>Last-Modified</td>
+<td>所请求的对象的最后修改日期(按照 RFC 7231 中定义的“超文本传输协议日期”格式来表示)</td>
+<td><code>Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Link</td>
+<td>用来表达与另一个资源之间的类型关系，此处所说的类型关系是在 RFC 5988 中定义的</td>
+<td><code>Link: &lt;/feed&gt;; rel=&quot;alternate&quot;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP_Location" title="HTTP Location">Location</a></td>
+<td>用来 进行重定向，或者在创建了某个新资源时使用。</td>
+<td><code>Location: http://www.w3.org/pub/WWW/People.html</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>P3P</td>
+<td>用于支持设置<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/P3P" title="P3P">P3P</a>策略，标准格式为“<code>P3P:CP=&quot;your_compact_policy&quot;</code>”。然而P3P规范并不成功，大部分现代浏览器没有完整实现该功能，而大量网站也将该值设为假值，从而足以用来欺骗浏览器的P3P插件功能并授权给第三方Cookies。</td>
+<td><code>P3P: CP=&quot;This is not a P3P policy! ``See http://www.google.com/support/accounts/bin/answer.py?hl=en&amp;answer=151657 for more info.&quot;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>与具体的实现相关，这些字段可能在请求&#x2F;回应链中的任何时候产生多种效果。</td>
+<td><code>Pragma: no-cache</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Proxy-Authenticate</td>
+<td>要求在访问代理时提供身份认证信息。</td>
+<td><code>Proxy-Authenticate: Basic</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E5%85%AC%E9%92%A5%E5%9B%BA%E5%AE%9A" title="HTTP公钥固定">Public-Key-Pins</a></td>
+<td>用于缓解<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB" title="中间人攻击">中间人攻击</a>，声明网站认证使用的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE" title="传输层安全协议">传输层安全协议</a>证书的散列值</td>
+<td><code>Public-Key-Pins: max-age=2592000; pin-sha256=&quot;E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=&quot;;</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>用于设定可定时的重定向跳转。右边例子设定了5秒后跳转至“<code>http://www.w3.org/pub/WWW/People.html</code>”。</td>
+<td><code>Refresh: 5; url=http://www.w3.org/pub/WWW/People.html</code></td>
+<td>专利并非标准Netscape实现的扩展，但大部分网页浏览器也支持。</td>
+</tr>
+<tr>
+<td>Retry-After</td>
+<td>如果某个实体临时不可用，则，此协议头用来告知客户端日后重试。其值可以是一个特定的时间段(以秒为单位)或一个超文本传输协议日期。</td>
+<td>*   Example 1: <code>Retry-After: 120</code>*   Example 2: <code>Retry-After: Fri, 07 Nov 2014 23:59:59 GMT</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>服务器的名字</td>
+<td><code>Server: Apache/2.4.1 (Unix)</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Set-Cookie</td>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Cookie" title="Cookie">HTTP cookie</a></td>
+<td><code>Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1</code></td>
+<td>常设: 标准</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>通用网关接口 协议头字段，用来说明当前这个超文本传输协议回应的 状态 。普通的超文本传输协议回应，会使用单独的“状态行”（”Status-Line”）作为替代，这一点是在 RFC 7230 中定义的。</td>
+<td><code>Status: 200 OK</code></td>
+<td>Not listed as a <a target="_blank" rel="noopener" href="http://www.iana.org/assignments/message-headers/message-headers.xml">registered field name</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E4%B8%A5%E6%A0%BC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8" title="HTTP严格传输安全">Strict-Transport-Security</a></td>
+<td>HTTP 严格传输安全这一头部告知客户端缓存这一强制 HTTPS 策略的时间，以及这一策略是否适用于其子域名。</td>
+<td><code>Strict-Transport-Security: max-age=16070400; includeSubDomains</code></td>
+<td>常设: 标准</td>
+</tr>
+<tr>
+<td>Trailer</td>
+<td>这个头部数值指示了在这一系列头部信息由由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%88%86%E5%9D%97%E4%BC%A0%E8%BE%93%E7%BC%96%E7%A0%81" title="分块传输编码">分块传输编码</a>编码。</td>
+<td><code>Trailer: Max-Forwards</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Transfer-Encoding</td>
+<td>用来将实体安全地传输给用户的编码形式。当前定义的方法包括：分块（chunked）、compress、deflate、gzip和identity。</td>
+<td><code>Transfer-Encoding: chunked</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Upgrade</td>
+<td>要求客户端升级到另一个协议。</td>
+<td><code>Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Vary</td>
+<td>告知下游的代理服务器，应当如何对未来的请求协议头进行匹配，以决定是否可使用已缓存的回应内容而不是重新从原始服务器请求新的内容。</td>
+<td><code>Vary: *</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Via</td>
+<td>告知代理服务器的客户端，当前回应是通过什么途径发送的。</td>
+<td><code>Via: 1.0 fred, 1.1 example.com (Apache/1.1)</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>一般性的警告，告知在实体内容体中可能存在错误。</td>
+<td><code>Warning: 199 Miscellaneous warning</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>WWW-Authenticate</td>
+<td>表明在请求获取这个实体时应当使用的认证模式。</td>
+<td><code>WWW-Authenticate: Basic</code></td>
+<td>常设</td>
+</tr>
+<tr>
+<td>X-Frame-Options</td>
+<td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%82%B9%E5%87%BB%E5%8A%AB%E6%8C%81" title="点击劫持">点击劫持</a>保护：*   <code>deny</code>：该页面不允许在 frame 中展示，即使是同域名内。*   <code>sameorigin</code>：该页面允许同域名内在 frame 中展示。*   <code>allow-from *uri*</code>：该页面允许在指定uri的 frame 中展示。*   <code>allowall</code>：允许任意位置的frame显示，非标准值。</td>
+<td><code>X-Frame-Options: deny</code></td>
+<td>过时的</td>
+</tr>
+</tbody></table>
+<p>参考链接：<br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E5%A4%B4%E5%AD%97%E6%AE%B5">wikipedia-HTTP headers</a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>原文作者: </span>
+    <a href="https://peakJ.github.io">PeakJ</a>
+  </p>
+  <p class="copyright-item">
+    <span>原文链接: </span>
+    <a href="https://peakj.github.io/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/">https://peakj.github.io/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/</a>
+  </p>
+  <p class="copyright-item">
+    <span>许可协议: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2019/04/23/MVVM%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">MVVM双向数据绑定的个人理解</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2019/04/15/beacon-api/">  
+        <span class="next-text nav-default">h5 数据上报之SendBeacon</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTY3OS8xODIyNQ==">  
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>  
+      </div>    
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:jfup3336@gmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/PeakJ" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2016 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">PeakJ</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+  
+<script type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') {
+      return;
+    }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+  
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/spider/spider_background.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ktsmhtweja");
+</script>
+</body>
+
+</html>
