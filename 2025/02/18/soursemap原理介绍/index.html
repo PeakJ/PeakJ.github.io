@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="2018 0405 create the repository" />
+<meta name="description" content="soursemap原理介绍" />
 
 
 <!-- Website keywords -->
@@ -39,7 +39,7 @@
 
 
 <!-- Canonical, good for google search engine -->
-<link rel="canonical" href="https://peakJ.github.io/" />
+<link rel="canonical" href="https://peakJ.github.io/2025/02/18/soursemap原理介绍/" />
 
 <!-- Fancybox styling -->
 
@@ -85,7 +85,7 @@
   window.config = {"leancloud":{"app_id":"vJcJkKHJ864RV1KoRQQXaUjP-gzGzoHsz","app_key":"SagHLnqakLPCqrNgt9DBy1jJ","server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
 </script>
   
-  <title>PeakJ Space</title>
+  <title>soursemap原理介绍 - PeakJ Space</title>
 
 <meta name="generator" content="Hexo 7.1.1"></head>
 
@@ -205,15 +205,11 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-  
-  
-  
-  <article class="post">
+          <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/2025/02/18/soursemap%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/">soursemap原理介绍</a>
+      soursemap原理介绍
       
     </h1>
 
@@ -232,12 +228,15 @@
   </header>
 
   
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-sourceMap%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是 sourceMap？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-sourcemap%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">为什么需要 sourcemap？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sourcemap-%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text">sourcemap 是什么样的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-sourcemap-%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">支持 sourcemap 的工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90-sourcemap"><span class="toc-number">5.</span> <span class="toc-text">如何生成 sourcemap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Webpack"><span class="toc-number">5.1.</span> <span class="toc-text">使用 Webpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Vite"><span class="toc-number">5.2.</span> <span class="toc-text">使用 Vite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Babel"><span class="toc-number">5.3.</span> <span class="toc-text">使用 Babel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-UglifyJS"><span class="toc-number">5.4.</span> <span class="toc-text">使用 UglifyJS</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-sourcemap"><span class="toc-number">6.</span> <span class="toc-text">如何使用 sourcemap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sourcemap-%E6%94%AF%E6%8C%81%E6%89%A9%E5%B1%95%E5%AD%97%E6%AE%B5"><span class="toc-number">7.</span> <span class="toc-text">sourcemap 支持扩展字段</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sourcemap-%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.</span> <span class="toc-text">sourcemap 常见类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.0.1.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E7%A4%BA%E4%BE%8B"><span class="toc-number">8.1.</span> <span class="toc-text">类型示例:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#http-%E5%93%8D%E5%BA%94%E5%A4%B4-sourcemap"><span class="toc-number">9.</span> <span class="toc-text">http 响应头 sourcemap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sourcemap-name-%E6%9D%A5%E6%BA%90"><span class="toc-number">10.</span> <span class="toc-text">sourcemap name 来源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sourcemap-mappings-%E5%8E%9F%E7%90%86"><span class="toc-number">11.</span> <span class="toc-text">sourcemap mappings 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mappings-%E8%AF%B4%E6%98%8E"><span class="toc-number">11.1.</span> <span class="toc-text">mappings 说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E5%AF%B9%E5%BA%94%E8%A7%84%E5%88%99"><span class="toc-number">11.2.</span> <span class="toc-text">位置对应规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLQ-%E7%BC%96%E7%A0%81"><span class="toc-number">12.</span> <span class="toc-text">VLQ 编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E6%B5%81%E7%A8%8B"><span class="toc-number">12.1.</span> <span class="toc-text">编码流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-number">13.</span> <span class="toc-text">实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%8D%95%E8%8E%B7%E4%B8%8A%E6%8A%A5"><span class="toc-number">13.1.</span> <span class="toc-text">错误捕获上报</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E7%BA%BF%E4%B8%8A%E4%BB%A3%E7%A0%81"><span class="toc-number">14.</span> <span class="toc-text">调试线上代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">15.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#source-map-revision-3-proposal"><span class="toc-number">15.1.</span> <span class="toc-text">source map revision 3 proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COder-DECoder-AND-SOURCEMAP-V3-MAPPINGS-PARSER"><span class="toc-number">15.2.</span> <span class="toc-text">(COder&#x2F;DECoder) AND SOURCEMAP V3 MAPPINGS PARSER</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map-visualization"><span class="toc-number">15.3.</span> <span class="toc-text">map-visualization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#source-map-visualization"><span class="toc-number">15.4.</span> <span class="toc-text">source-map-visualization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#base64-%E7%BC%96%E7%A0%81%E8%A1%A8"><span class="toc-number">15.5.</span> <span class="toc-text">base64 编码表</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
 
   <div class="post-content">
-    
-    
-    
-
     
     <h1 id="什么是-sourceMap？"><a href="#什么是-sourceMap？" class="headerlink" title="什么是 sourceMap？"></a>什么是 sourceMap？</h1><p>sourcemap 是现代 web 开发体系中不可或缺的一部分，它给开发者提供了一种调试生产环境压缩和编译后代码的手段，是一种经过工具处理后的代码产物和源代码之间的映射关系。Sourcemap 最初是由 Google 发起并开发的，作为 Web 开发中调试和分析压缩 JavaScript 代码的解决方案。2009 年左右，Google 收购了一家名为 Closure Compiler 的 JavaScript 压缩工具，Closure Compiler 支持生成 sourcemap，并填充了该工具的大量功能。经过一段时间的发展，sourcemap 成为了一个通用的标准规范。2011 年，Mozilla 发布了基于 sourcemap 的 Firefox 开发者工具，这意味着 sourcemap 成为了多个主流浏览器的标准之一。至此，sourcemap 成为了前端开发中必不可少的调试和分析工具。</p>
 <h1 id="为什么需要-sourcemap？"><a href="#为什么需要-sourcemap？" class="headerlink" title="为什么需要 sourcemap？"></a>为什么需要 sourcemap？</h1><p>JavaScript 是一种弱类型、解释执行的语言，它所用的源代码通常比较容易读懂。然而，在发布时，为了获得更快的速度和更小的文件大小，往往会对 JavaScript 代码进行压缩和混淆，这为开发者在调试和排错时带来了很大的困难。这时就需要 sourcemap 来帮助开发者定位问题。</p>
@@ -581,481 +580,61 @@
 </tbody></table>
 
     
-    
   </div>
 
   
+  <!-- Post Copyright -->
 
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2022/03/14/vscode-settings-json/">vscode-settings.json</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2022-03-14
-      </span>
-      
-      
-      
-      <span class="post-visits" data-url="/2022/03/14/vscode-settings-json/" data-title="vscode-settings.json">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>原文作者: </span>
+    <a href="https://peakJ.github.io">PeakJ</a>
+  </p>
+  <p class="copyright-item">
+    <span>原文链接: </span>
+    <a href="https://peakj.github.io/2025/02/18/soursemap%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/">https://peakj.github.io/2025/02/18/soursemap%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/</a>
+  </p>
+  <p class="copyright-item">
+    <span>许可协议: </span>
     
-    
-    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
 
     
-    <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;editor.accessibilitySupport&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.bracketPairColorization.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.codeActionsOnSave&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;source.fixAll&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.cursorSmoothCaretAnimation&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Cartograph CF Italic, Cartograph CF&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">14</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.guides.bracketPairs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;active&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.inlineSuggest.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;emmet.showSuggestionsAsSnippets&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;emmet.triggerExpansionOnTab&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;extensions.autoUpdate&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.simpleDialog.enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;github.copilot.enable&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;*&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;markdown&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;plaintext&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;yaml&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.cursorBlinking&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.cursorStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;line&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.env.osx&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;FIG_NEW_SESSION&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Cartograph CF,MesloLGS NF, Menlo, Monaco, &#x27;Courier New&#x27;, monospace&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window.dialogStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;custom&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window.zoomLevel&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.colorTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Vue Theme&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.editor.wrapTabs&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.editorAssociations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;*.md&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vscode.markdown.preview.editor&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.fontAliasing&quot;</span><span class="punctuation">:</span> <span class="string">&quot;antialiased&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.iconTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;material-icon-theme&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.list.smoothScrolling&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.productIconTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;fluent-icons&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-    
-    
-  </div>
 
   
 
   
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
+  <footer class="post-footer">
+    
       
-      <a class="post-link" href="/2019/10/21/HTML5-video-%E4%B9%8B%E7%BC%93%E5%86%B2%E6%9D%A1/">HTML5 video 之缓冲条</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-10-21
-      </span>
+  <nav class="post-nav">  
       
       
-      
-      <span class="post-visits" data-url="/2019/10/21/HTML5-video-%E4%B9%8B%E7%BC%93%E5%86%B2%E6%9D%A1/" data-title="HTML5 video 之缓冲条">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>html5的 <code>&lt;video&gt;</code> 标签现在可以完美支持web端的视频播放场景,最近在用<code>&lt;video&gt;</code>自定义播放器，在绘制进度条的时候，需要标记出视频缓冲段，因此了解了一下媒体元素（video、audio）HTMLMediaElement的一些属性，其中buffered属性跟缓存相关。</p>
-    <div class="read-more">
-      <a href="/2019/10/21/HTML5-video-%E4%B9%8B%E7%BC%93%E5%86%B2%E6%9D%A1/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2019/10/15/%E6%88%91%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/">我的自定义页面</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-10-15
-      </span>
-      
-      
-      
-      <span class="post-visits" data-url="/2019/10/15/%E6%88%91%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" data-title="我的自定义页面">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <blockquote>
-<p>本文为自定义页面的入口，每条索引对应一个自定义的html页面</p>
-</blockquote>
-<p>** 持续更新 **</p>
-    <div class="read-more">
-      <a href="/2019/10/15/%E6%88%91%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2019/10/12/simple-eventManage-system/">simple eventManage system</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-10-12
-      </span>
-      
-      
-      <span class="post-category">
-        
-        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
-        
-      </span>
-      
-      
-      <span class="post-visits" data-url="/2019/10/12/simple-eventManage-system/" data-title="simple eventManage system">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-
-    
-    <h3 id="一个精简的事件系统"><a href="#一个精简的事件系统" class="headerlink" title="一个精简的事件系统"></a>一个精简的事件系统</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> eventManage = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> event = &#123;&#125;</span><br><span class="line">  <span class="comment">// 触发事件</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">dispatchEvent</span>(<span class="params">type, infoData</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="property">handlers</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(event.<span class="property">handlers</span>, type)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; event.<span class="property">handlers</span>[type].<span class="property">length</span>; i++) &#123;</span><br><span class="line">          event.<span class="property">handlers</span>[type][i](infoData)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加监听</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">addEventListener</span>(<span class="params">type, callBack</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!event.<span class="property">handlers</span>) &#123;</span><br><span class="line">      <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(event, <span class="string">&#x27;handlers&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">value</span>: &#123;&#125;,</span><br><span class="line">        <span class="attr">enumerable</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">configurable</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">writable</span>: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!event.<span class="property">handlers</span>[type]) &#123;</span><br><span class="line">      event.<span class="property">handlers</span>[type] = []</span><br><span class="line">    &#125;</span><br><span class="line">    event.<span class="property">handlers</span>[type].<span class="title function_">push</span>(callBack)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//移除监听</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">removeEventListener</span>(<span class="params">type</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="property">handlers</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(event.<span class="property">handlers</span>, type)) &#123;</span><br><span class="line">        event.<span class="property">handlers</span>[type] = []</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    event,</span><br><span class="line">    eventType,</span><br><span class="line">    dispatchEvent,</span><br><span class="line">    addEventListener,</span><br><span class="line">    removeEventListener</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; eventManage &#125;</span><br></pre></td></tr></table></figure>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2019/08/02/git-rebase%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">git rebase使用场景🤣</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-08-02
-      </span>
-      
-      
-      <span class="post-category">
-        
-        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
-        
-      </span>
-      
-      
-      <span class="post-visits" data-url="/2019/08/02/git-rebase%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" data-title="git rebase使用场景🤣">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>git rebase 俗称变基，作用是<strong>将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样</strong>。这样操作后，提交历史会变得简洁，可读性更高，因为提交记录改变了时间线，把某个完整功能的提交记录整合在了一起，使得这期间其他人的提交记录不会穿插到其中，干净舒爽！🚾👯‍♂️</p>
-    <div class="read-more">
-      <a href="/2019/08/02/git-rebase%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2019/07/30/%E7%A4%BE%E4%BF%9D%E9%82%A3%E4%BA%9B%E4%BA%8B/">社保那些事</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-07-30
-      </span>
-      
-      
-      <span class="post-category">
-        
-        <a href="/categories/%E9%9D%9E%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">非技术文章</a>
-        
-      </span>
-      
-      
-      <span class="post-visits" data-url="/2019/07/30/%E7%A4%BE%E4%BF%9D%E9%82%A3%E4%BA%9B%E4%BA%8B/" data-title="社保那些事">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/9ziEXWIcWOy7Q0JG4GnfMw">原文：保哥和八姐</a></p>
-<p><img src="https://s2.ax1x.com/2019/07/30/eJHI81.png" alt="图片来源：pexels"></p>
-<p>最近，我的一个表弟裸辞了。他跟我说，不着急马上投入下一份工作，要先给自己放个假，好好出去玩一下再说。</p>
-<p>好吧，现在的年轻人，都挺头铁的。</p>
-<p>出于对他的关怀，我随口问了一句，社保什么的，你打算自己交吗？他竟然抛出了一张“黑人问号脸”，向我表示，从来没care过这个事情，不工作就不交呗，有什么问题吗？</p>
-<p>我：……</p>
-<h2 id="原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。"><a href="#原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。" class="headerlink" title="原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。"></a>原来很多年轻人，根本没有意识到社保断缴对自己的影响。今天，就来跟像我表弟一样的小青年，谈谈社保的问题。<br>
-    <div class="read-more">
-      <a href="/2019/07/30/%E7%A4%BE%E4%BF%9D%E9%82%A3%E4%BA%9B%E4%BA%8B/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2019/07/30/clipboard-js-%E9%A6%96%E6%AC%A1%E5%A4%8D%E5%88%B6%E9%9C%80%E8%A6%81%E7%82%B9%E5%87%BB%E4%B8%A4%E6%AC%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">clipboard.js 首次复制需要点击两次问题的解决方案</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-07-30
-      </span>
-      
-      
-      <span class="post-category">
-        
-        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
-        
-      </span>
-      
-      
-      <span class="post-visits" data-url="/2019/07/30/clipboard-js-%E9%A6%96%E6%AC%A1%E5%A4%8D%E5%88%B6%E9%9C%80%E8%A6%81%E7%82%B9%E5%87%BB%E4%B8%A4%E6%AC%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" data-title="clipboard.js 首次复制需要点击两次问题的解决方案">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-
-    
-    <blockquote>
-<p>web项目中有对渲染后的列表进行复制文字的操作，采用了clipboard.js的方案，免去了解决兼容性的烦恼，但是实际效果不符合预期，第一次点击复制无效，从第二次之后才可以复制成功</p>
-</blockquote>
-<p>项目使用的Vue技术栈，复制操作使用了动态复制的api</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">ClipboardJS</span>(<span class="string">&#x27;.btn&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">text</span>: <span class="keyword">function</span>(<span class="params">trigger</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> trigger.<span class="title function_">getAttribute</span>(<span class="string">&#x27;aria-label&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>经过试验，是因为API调用放在了ajax的回调函数中，这样第一次创建ClipboardJS构造函数成功时，复制操作已经结束，没有复制到任何文本，由于要复制的目标文本必须要通过网络请求动态获取，可以采取hack方案，借助<code>mouseenter</code>实现，当鼠标移入的时候执行一次，在接下来的点击事件中就可以正常复制。</p>
-<p>额外的处理就是区分事件调用者为鼠标移入事件还是点击事件，鼠标移入事件只简单的创建构造函数，屏蔽额外的业务逻辑，真正的逻辑放在点击事件中处理，<strong>保证<code>mouseenter</code>只执行一次即可</strong></p>
-<p>附基础代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html</span></span><br><span class="line">&lt;button <span class="keyword">class</span>=<span class="string">&quot;btn&quot;</span> @mouseenter=<span class="string">&quot;copy&quot;</span> @click=<span class="string">&quot;copy&quot;</span>&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// script</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">copy</span>(<span class="params"></span>) &#123;</span><br><span class="line">    $.<span class="title function_">get</span>(url, data).<span class="title function_">then</span>(</span><br><span class="line">        <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (response.<span class="property">code</span> === <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> clipboard = <span class="keyword">new</span> <span class="title class_">ClipboardJS</span>(<span class="string">&quot;.btn&quot;</span>, &#123;</span><br><span class="line">                    <span class="attr">text</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> response.<span class="property">text</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">                clipboard.<span class="title function_">on</span>(<span class="string">&quot;success&quot;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">                    clipboard.<span class="title function_">destroy</span>();</span><br><span class="line">                &#125;);</span><br><span class="line">                clipboard.<span class="title function_">on</span>(<span class="string">&quot;error&quot;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">                    e.<span class="title function_">clearSelection</span>();</span><br><span class="line">                    clipboard.<span class="title function_">destroy</span>();</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2019/04/23/MVVM%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">MVVM双向数据绑定的个人理解</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-04-23
-      </span>
-      
-      
-      <span class="post-category">
-        
-        <a href="/categories/%E7%A7%AF%E7%B4%AF/">积累</a>
-        
-      </span>
-      
-      
-      <span class="post-visits" data-url="/2019/04/23/MVVM%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" data-title="MVVM双向数据绑定的个人理解">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <h2 id="AngularJS-的脏检查机制"><a href="#AngularJS-的脏检查机制" class="headerlink" title="AngularJS 的脏检查机制"></a>AngularJS 的脏检查机制</h2><p>AngularJS的双向数据绑定采用的<strong>脏检查</strong>机制，所谓“脏检查”，就是检测到数据与之前不一致，有变化，这时候就认为数据是“脏”的，然后把不一致的数据变更为较新的值，直到没有新的数据变动。</p>
-<p>通常<strong>UI事件、ajax请求后的数据处理</strong> 或者 <strong>timeout 延迟事件</strong>会触发这个脏检查这个过程的实现，主要是靠 <code>$watch</code> 和<code>$digest</code> 两个重要的函数。</p>
-    <div class="read-more">
-      <a href="/2019/04/23/MVVM%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/">http headers之我见</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2019-04-20
-      </span>
-      
-      
-      
-      <span class="post-visits" data-url="/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/" data-title="http headers之我见">
-        阅读量 0
-      </span>
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <p>最近看了一些关于HTTP headers的知识，平时与服务端联调接口，查看headers必不可少。</p>
-<blockquote>
-<p>headers（请求头）允许客户端和服务器通过 <strong>request</strong>和 <strong>response</strong>传递附加信息。一个请求头由名称（不区分大小写）后跟一个冒号“：”，冒号后跟具体的值（不带换行符）组成。该值前面的引导空白会被忽略。</p>
-</blockquote>
-    <div class="read-more">
-      <a href="/2019/04/20/http-headers%E4%B9%8B%E6%88%91%E8%A7%81/" class="read-more-link">阅读更多</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
-    
-  <nav class="pagination">  
-      
-      
-      <a class="next" href="/page/2/">  
-        <span class="next-text">下一页</span>  
+      <a class="next" href="/2022/03/14/vscode-settings-json/">  
+        <span class="next-text nav-default">vscode-settings.json</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
         <i class="iconfont icon-right"></i>  
       </a>  
       
   </nav>  
   
 
+  </footer>
   
-</section>
+
+</article>
         </div>
           
+  <div class="comments" id="comments">  
+      
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTY3OS8xODIyNQ==">  
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>  
+      </div>    
+      
+  </div>  
+  
 
       </div>
     </main>
@@ -1154,6 +733,27 @@
     <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
   </div>
     
+    
+    
+  
+<script type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') {
+      return;
+    }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+  
+    
+    
+    
+  
 
   
 
